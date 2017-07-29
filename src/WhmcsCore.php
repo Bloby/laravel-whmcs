@@ -81,7 +81,7 @@ class WhmcsCore {
     protected function addNecessaryParams($params)
     {
         $params['username']         = $this->username;
-        $params['password']         = md5($this->password);
+        $params['password']         = $this->hashed_password ? $this->password : md5($this->password);
         $params['responsetype']     = $this->response_type;
 
         return $params;
