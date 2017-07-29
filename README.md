@@ -45,6 +45,9 @@ return [
 	// API PASSWORD
 	'password'	=>	'password123',
 
+    // API PASSWORD HASHED
+    'hashed_password' => false,
+
 	// API RESPONSE TYPE
 	'response_type'	=> 'json', // json or xml
 ];
