@@ -45,6 +45,7 @@ class WhmcsCore {
     {
         $this->username         = config('whmcs.username');
         $this->password         = config('whmcs.password');
+        $this->hashed_password  = config('whmcs.hashed_password');
         $this->response_type    = strtolower(config('whmcs.response_type'));
 
         $this->client = new Client([
