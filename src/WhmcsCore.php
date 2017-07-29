@@ -96,8 +96,9 @@ class WhmcsCore {
      */
     protected function handleResponse($response)
     {
-        if($this->response_type === 'json')
+        if($this->response_type === 'json') {
             return json_decode($response->getBody(), true);
+        }
 
         return simplexml_load_string($response->getBody());
     }
