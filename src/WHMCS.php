@@ -12,6 +12,11 @@ class WHMCS extends WhmcsCore {
         parent::__construct();
     }
 
+    /**
+     * @param $email
+     * @param $password
+     * @return array
+     */
     public function validateLogin($email, $password)
     {
         $data = [
