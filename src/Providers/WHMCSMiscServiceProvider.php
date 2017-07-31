@@ -1,6 +1,6 @@
 <?php
 
-namespace WHMCS\Provider;
+namespace WHMCS\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use WHMCS\WHMCSMisc;

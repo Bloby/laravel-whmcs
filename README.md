@@ -23,14 +23,14 @@ Then, add the following **Service Provider** to your `providers` array in your `
 ```php
 'providers' => array(
 	...
-	WHMCS\Provider\WHMCSClientServiceProvider::class,
-	WHMCS\Provider\WHMCSInvoiceServiceProvider::class,
-	WHMCS\Provider\WHMCSMiscServiceProvider::class,
-	WHMCS\Provider\WHMCSModuleServiceProvider::class,
-	WHMCS\Provider\WHMCSOrderServiceProvider::class,
-	WHMCS\Provider\WHMCSProductsServiceProvider::class,
-	WHMCS\Provider\WHMCSQuoteServiceProvider::class,
-	WHMCS\Provider\WHMCSTicketServiceProvider::class,
+	WHMCS\Providers\WHMCSClientServiceProvider::class,
+	WHMCS\Providers\WHMCSInvoiceServiceProvider::class,
+	WHMCS\Providers\WHMCSMiscServiceProvider::class,
+	WHMCS\Providers\WHMCSModuleServiceProvider::class,
+	WHMCS\Providers\WHMCSOrderServiceProvider::class,
+	WHMCS\Providers\WHMCSProductsServiceProvider::class,
+	WHMCS\Providers\WHMCSQuoteServiceProvider::class,
+	WHMCS\Providers\WHMCSTicketServiceProvider::class,
 );
 ```
 

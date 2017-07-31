@@ -1,11 +1,11 @@
 <?php
 
-namespace WHMCS\Provider;
+namespace WHMCS\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use WHMCS\WHMCSInvoice;
+use WHMCS\WHMCSClient;
 
-class WHMCSInvoiceServiceProvider extends ServiceProvider {
+class WHMCSClientServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -31,13 +31,13 @@ class WHMCSInvoiceServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->bind('whmcsi', function($app) {
-		    return new WHMCSInvoice;
+		$this->app->bind('whmcsc', function($app) {
+		    return new WHMCSClient;
 		});
 
 		$this->app->booting(function() {
 			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-			$loader->alias('WHMCSInvoice', 'WHMCS\Facades\WHMCSInvoice');
+			$loader->alias('WHMCSClient', 'WHMCS\Facades\WHMCSClient');
 		});
 
 		$this->publishes([
@@ -52,7 +52,7 @@ class WHMCSInvoiceServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('whmcsi');
+		return array('whmcsc');
 	}
 
 }

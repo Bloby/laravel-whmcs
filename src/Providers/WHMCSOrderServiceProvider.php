@@ -1,10 +1,10 @@
 <?php
 
-namespace WHMCS\Provider;
+namespace WHMCS\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class WHMCSQuoteServiceProvider extends ServiceProvider {
+class WHMCSOrderServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -30,13 +30,13 @@ class WHMCSQuoteServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->bind('whmcsq', function($app) {
-		    return new WHMCSQuote;
+		$this->app->bind('whmcso', function($app) {
+		    return new WHMCSOrder;
 		});
 
 		$this->app->booting(function() {
 			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-			$loader->alias('WHMCSQuote', 'WHMCS\Facades\WHMCSQuote');
+			$loader->alias('WHMCSOrder', 'WHMCS\Facades\WHMCSOrder');
 		});
 
 		$this->publishes([
@@ -51,7 +51,7 @@ class WHMCSQuoteServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('whmcsq');
+		return array('whmcso');
 	}
 
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace WHMCS\Provider;
+namespace WHMCS\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class WHMCSProductsServiceProvider extends ServiceProvider {
+class WHMCSQuoteServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -30,13 +30,13 @@ class WHMCSProductsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->bind('whmcsp', function($app) {
-		    return new WHMCSProducts;
+		$this->app->bind('whmcsq', function($app) {
+		    return new WHMCSQuote;
 		});
 
 		$this->app->booting(function() {
 			$loader = \Illuminate\Foundation\AliasLoader::getInstance();
-			$loader->alias('WHMCSProducts', 'WHMCS\Facades\WHMCSProducts');
+			$loader->alias('WHMCSQuote', 'WHMCS\Facades\WHMCSQuote');
 		});
 
 		$this->publishes([
@@ -51,7 +51,7 @@ class WHMCSProductsServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('whmcsp');
+		return array('whmcsq');
 	}
 
 }
