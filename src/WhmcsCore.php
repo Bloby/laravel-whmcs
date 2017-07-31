@@ -103,4 +103,18 @@ class WhmcsCore {
         return simplexml_load_string($response->getBody());
     }
 
+    /**
+     * Execute command
+     *
+     * @param string $command Command name
+     * @param array $params Parameters
+     * @return array
+     */
+    public function executeCommand($command, $params = [])
+    {
+        $params['action'] = $command;
+
+        return $this->submitRequest($params);
+    }
+
 }

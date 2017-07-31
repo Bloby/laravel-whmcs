@@ -10,19 +10,19 @@ use Illuminate\Support\Facades\Facade;
  * @method static array getClientDetails($client_id, $stats = false)
  * @method static array getClientDomains($client_id, $start = 0, $limit = 25)
  * @method static array getClientProducts($client_id, $start = 0, $limit = 25)
- * @method static array createClient($data)
- * @method static array executeCommand($command, $data)
+ * @method static array createClient($params)
+ * @method static array executeCommand($command, $params = [])
  *
- * @see \WHMCS\WHMCS
  * @see \WHMCS\WhmcsCore
- * @see \WHMCS\Facades\WHMCS
+ * @see \WHMCS\WHMCSClient
+ * @see \WHMCS\Facades\WHMCSClient
  */
-class WHMCS extends Facade {
+class WHMCSClient extends Facade {
 
 	/**
 	 * Get the registered name of the component
 	 *
 	 * @return string
 	 */
-	protected static function getFacadeAccessor() { return 'whmcs'; }
+	protected static function getFacadeAccessor() { return 'whmcsc'; }
 }

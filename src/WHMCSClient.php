@@ -2,7 +2,7 @@
 
 namespace WHMCS;
 
-class WHMCS extends WhmcsCore {
+class WHMCSClient extends WhmcsCore {
     
     /**
      * Instantiate a new instance
@@ -19,13 +19,13 @@ class WHMCS extends WhmcsCore {
      */
     public function validateLogin($email, $password)
     {
-        $data = [
+        $params = [
             'action'    => 'ValidateLogin',
             'email'     => $email,
             'password2' => $password,
         ];
 
-        return $this->submitRequest($data);
+        return $this->submitRequest($params);
     }
 
     /**
@@ -38,17 +38,17 @@ class WHMCS extends WhmcsCore {
      */
     public function getClients($start = 0, $limit = 25, $search = null)
     {
-        $data = [
+        $params = [
             'action'        => 'GetClients',
             'limitstart'    => $start,
             'limitnum'      => $limit,
         ];
 
         if ($search) {
-            $data['search'] = $search;
+            $params['search'] = $search;
         }
         
-        return $this->submitRequest($data);
+        return $this->submitRequest($params);
     }
 
     /**
@@ -60,13 +60,13 @@ class WHMCS extends WhmcsCore {
      */
     public function getClientDetails($client_id, $stats = false)
     {
-        $data = [
+        $params = [
             'action'    =>  'GetClientsDetails',
             'clientid'  =>  $client_id,
             'stats'     =>  $stats
         ];
 
-        return $this->submitRequest($data);
+        return $this->submitRequest($params);
     }
 
     /**
@@ -79,14 +79,14 @@ class WHMCS extends WhmcsCore {
      */
     public function getClientDomains($client_id, $start = 0, $limit = 25)
     {
-        $data = [
+        $params = [
             'action'        =>  'GetClientsDomains',
             'clientid'      =>  $client_id,
             'limitstart'    =>  $start,
             'limitnum'      =>  $limit
         ];
 
-        return $this->submitRequest($data);
+        return $this->submitRequest($params);
     }
 
     /**
@@ -99,40 +99,27 @@ class WHMCS extends WhmcsCore {
      */
     public function getClientProducts($client_id, $start = 0, $limit = 25)
     {
-        $data = [
+        $params = [
             'action'        => 'GetClientsProducts',
             'clientid'      => $client_id,
             'limitstart'    =>  $start,
             'limitnum'      =>  $limit
         ];
 
-        return $this->submitRequest($data);
+        return $this->submitRequest($params);
     }
 
     /**
      * Creates a new client
      * 
-     * @param array $data
+     * @param array $params
      * @return array
      */
-    public function createClient($data)
+    public function createClient($params)
     {
-        $data['action'] = 'AddClient';
+        $params['action'] = 'AddClient';
 
-        return $this->submitRequest($data);
+        return $this->submitRequest($params);
     }
 
-    /**
-     * Execute command
-     *
-     * @param string $command Command name
-     * @param array $data Parameters
-     * @return array
-     */
-    public function executeCommand($command, $data)
-    {
-        $data['action'] = $command;
-
-        return $this->submitRequest($data);
-    }
 }

@@ -1,3 +1,10 @@
 /vendor
 .idea
 /src/test.php
+/src/test_inv.php
+/src/test_misc.php
+/src/test_mod.php
+/src/test_o.php
+/src/test_p.php
+/src/test_q.php
+/src/test_t.php

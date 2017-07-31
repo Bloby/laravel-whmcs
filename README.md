@@ -23,7 +23,14 @@ Then, add the following **Service Provider** to your `providers` array in your `
 ```php
 'providers' => array(
 	...
-	WHMCS\WHMCSServiceProvider::class
+	WHMCS\Provider\WHMCSClientServiceProvider::class,
+	WHMCS\Provider\WHMCSInvoiceServiceProvider::class,
+	WHMCS\Provider\WHMCSMiscServiceProvider::class,
+	WHMCS\Provider\WHMCSModuleServiceProvider::class,
+	WHMCS\Provider\WHMCSOrderServiceProvider::class,
+	WHMCS\Provider\WHMCSProductsServiceProvider::class,
+	WHMCS\Provider\WHMCSQuoteServiceProvider::class,
+	WHMCS\Provider\WHMCSTicketServiceProvider::class,
 );
 ```
 
@@ -62,7 +69,7 @@ Route::get('/products/{client_id}', function() {
     $start = 0;
     $limit = 25;
 
-    $products = WHMCS::getClientProducts($client_id, $start, $limit);
+    $products = WHMCSClient::getClientProducts($client_id, $start, $limit);
 
     return json_encode($products);
 });
