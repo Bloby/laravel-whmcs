@@ -39,9 +39,12 @@ class WHMCSModuleServiceProvider extends ServiceProvider {
 			$loader->alias('WHMCSModule', 'WHMCS\Facades\WHMCSModule');
 		});
 
-		$this->publishes([
-			dirname(__FILE__).'/config/whmcs.php' => config_path('whmcs.php')
-		]);
+        $configPath = config_path('whmcs.php');
+        if (!\Illuminate\Support\Facades\File::exists($configPath)) {
+            $this->publishes([
+                __DIR__ . '/../config/whmcs.php' => $configPath
+            ]);
+        }
 	}
 
 	/**

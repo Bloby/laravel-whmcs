@@ -40,9 +40,12 @@ class WHMCSMiscServiceProvider extends ServiceProvider {
 			$loader->alias('WHMCSMisc', 'WHMCS\Facades\WHMCSMisc');
 		});
 
-		$this->publishes([
-			dirname(__FILE__).'/config/whmcs.php' => config_path('whmcs.php')
-		]);
+        $configPath = config_path('whmcs.php');
+        if (!\Illuminate\Support\Facades\File::exists($configPath)) {
+            $this->publishes([
+                __DIR__ . '/../config/whmcs.php' => $configPath
+            ]);
+        }
 	}
 
 	/**
