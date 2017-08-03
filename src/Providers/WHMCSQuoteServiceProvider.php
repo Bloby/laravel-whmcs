@@ -31,7 +31,7 @@ class WHMCSQuoteServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind('whmcsq', function($app) {
-		    return new WHMCSQuote;
+		    return new \WHMCS\WHMCSQuote;
 		});
 
 		$this->app->booting(function() {

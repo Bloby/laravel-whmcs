@@ -31,7 +31,7 @@ class WHMCSOrderServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind('whmcso', function($app) {
-		    return new WHMCSOrder;
+		    return new \WHMCS\WHMCSOrder;
 		});
 
 		$this->app->booting(function() {

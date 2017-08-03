@@ -32,7 +32,7 @@ class WHMCSClientServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind('whmcsc', function($app) {
-		    return new WHMCSClient;
+		    return new \WHMCS\WHMCSClient;
 		});
 
 		$this->app->booting(function() {

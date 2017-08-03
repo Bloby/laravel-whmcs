@@ -32,7 +32,7 @@ class WHMCSMiscServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind('whmcsm', function($app) {
-		    return new WHMCSMisc;
+		    return new \WHMCS\WHMCSMisc;
 		});
 
 		$this->app->booting(function() {

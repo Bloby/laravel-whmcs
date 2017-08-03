@@ -31,7 +31,7 @@ class WHMCSTicketServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind('whmcst', function($app) {
-		    return new WHMCSTicket;
+		    return new \WHMCS\WHMCSTicket;
 		});
 
 		$this->app->booting(function() {

@@ -31,7 +31,7 @@ class WHMCSModuleServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind('whmcsmod', function($app) {
-		    return new WHMCSModule;
+		    return new \WHMCS\WHMCSModule;
 		});
 
 		$this->app->booting(function() {

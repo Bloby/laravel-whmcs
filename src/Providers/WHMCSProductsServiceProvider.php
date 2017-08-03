@@ -31,7 +31,7 @@ class WHMCSProductsServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind('whmcsp', function($app) {
-		    return new WHMCSProducts;
+		    return new \WHMCS\WHMCSProducts;
 		});
 
 		$this->app->booting(function() {

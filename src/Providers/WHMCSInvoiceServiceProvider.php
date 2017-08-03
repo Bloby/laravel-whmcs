@@ -32,7 +32,7 @@ class WHMCSInvoiceServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		$this->app->bind('whmcsi', function($app) {
-		    return new WHMCSInvoice;
+		    return new \WHMCS\WHMCSInvoice;
 		});
 
 		$this->app->booting(function() {
