@@ -66,17 +66,29 @@ class WHMCSOrder extends WhmcsCore {
      *
      * @param int $limitstart
      * @param int $limitnum
+     * @param int $id
+     * @param int $userid
+     * @param string $status
      * @return array
      *
      * @see: http://wiki.whmcs.com/API:Get_Orders
      */
 
-    public function getOrders($limitstart = 0, $limitnum = 25) {
+    public function getOrders($limitstart = 0, $limitnum = 25, $id = null, $userid = null, $status = null) {
         $params = [
             'action' => 'GetOrders',
             'limitstart' => $limitstart,
             'limitnum' => $limitnum,
         ];
+        if (null !== $id) {
+            $params['id'] = $id;
+        }
+        if (null !== $userid) {
+            $params['userid'] = $userid;
+        }
+        if (null !== $status) {
+            $params['status'] = $status;
+        }
         return $this->submitRequest($params);
     }
 
