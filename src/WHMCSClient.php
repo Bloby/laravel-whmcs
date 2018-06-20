@@ -110,6 +110,20 @@ class WHMCSClient extends WhmcsCore {
     }
 
     /**
+     * Obtain an array of client groups
+     * 
+     * @return array
+     */
+    public function getClientGroups()
+    {
+        $params = [
+            'action'        => 'GetClientGroups',
+        ];
+
+        return $this->submitRequest($params);
+    }
+
+    /**
      * Creates a new client
      * 
      * @param array $params
