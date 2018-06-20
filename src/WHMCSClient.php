@@ -111,7 +111,7 @@ class WHMCSClient extends WhmcsCore {
 
     /**
      * Obtain an array of client groups
-     * 
+     *
      * @return array
      */
     public function getClientGroups()

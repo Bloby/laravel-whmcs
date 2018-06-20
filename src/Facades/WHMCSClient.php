@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static array getClientDetails($client_id, $stats = false)
  * @method static array getClientDomains($client_id, $start = 0, $limit = 25)
  * @method static array getClientProducts($client_id, $start = 0, $limit = 25)
+ * @method static array getClientGroups()
  * @method static array createClient($params)
  * @method static array executeCommand($command, $params = [])
  *
